@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        
+        <title>${title}</title>
+        <meta name="description" content="${description}"/>
+
+        <style>${style}</style>
+    </head>
+    <body>
+        <todo title="Riot.js TODO"></todo>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/2.3.18/riot+compiler.js"></script>
+        <script src="js/todo.js" type="riot/tag"></script>
+        <script src="js/todoItem.js" type="riot/tag"></script>
+        <script>
+            //mount
+            riot.mount("*");
+        </script>
+    </body>
+</html>
