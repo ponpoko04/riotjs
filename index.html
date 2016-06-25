@@ -22,24 +22,30 @@
             <app>
                 <h1>expressions</h1>
                 <ul>
-                    <li>{ name }</li>
-                    <li>{ title || "タイトルないよー" }</li>
-                    <li>{ flag ? "ready" : "loading" }</li>
-                    <li>{ new Date() }</li>
-                    <li>{ Math.round(64.5) }</li>
+                    <li each="{list}" class="{done:done}">{ title }</li>
                 </ul>
-                
-                this.name = "phi";
-                this.flag = true;
-                hoge(this);
-                function hoge(c){
-                    var piyo = c;
-                    setTimeout(function(){
-                        //レンダリング後に変数を変更してもViewには反映されない
-                        piyo.flag = false;
+
+                <style>
+                    li.done {
+                        color: #aaa;
+                        text-decoration: line-through;
                     }
-                    ,2000);
-                }
+                </style>
+                
+                this.list = [
+                    {
+                        title: "Hello, world!",
+                        done: false,
+                    },
+                    {
+                        title: "牛乳を買う",
+                        done: true,
+                    },
+                    {
+                        title: "豚肉を買う",
+                        done: false,
+                    }
+                ]
             </app>
         </script>
         
