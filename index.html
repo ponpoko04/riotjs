@@ -14,13 +14,32 @@
     </head>
     <body>
         <!--ユーザー定義のタグをここに展開-->
-        <app title="Hello, Riot.js"></app>
+        <!--<app title="Hello, Riot.js"></app>-->
+        <app></app>
         
         <!--appタグを定義-->
         <script type="riot/tag">
             <app>
-                <h1>{ title }</h1>
-                this.title = opts.title;
+                <h1>expressions</h1>
+                <ul>
+                    <li>{ name }</li>
+                    <li>{ title || "タイトルないよー" }</li>
+                    <li>{ flag ? "ready" : "loading" }</li>
+                    <li>{ new Date() }</li>
+                    <li>{ Math.round(64.5) }</li>
+                </ul>
+                
+                this.name = "phi";
+                this.flag = true;
+                hoge(this);
+                function hoge(c){
+                    var piyo = c;
+                    setTimeout(function(){
+                        //レンダリング後に変数を変更してもViewには反映されない
+                        piyo.flag = false;
+                    }
+                    ,2000);
+                }
             </app>
         </script>
         
