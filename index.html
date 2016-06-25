@@ -22,20 +22,14 @@
             <app>
                 <h1>expressions</h1>
 
-                <form onsubmit="{submit}">
-                    <input type="text" name="username"/>
-                    <input type="password" name="password"/>
-                    <button type="submit" name="submit">login</button>
-                </form>
-
-                this.on('mount', function(){
-                    this.username.value = "phi";
-                    this.password.value = "1234abcd";
-                });
+                <button onclick="{toggle}">click</button>
+                <div if="{visible}"> look </div>
+                <div show="{visible}"> show </div>
+                <div hide="{visible}"> hide </div>
                 
-                this.submit = function(){
-                    console.log("username: ", this.username.value);
-                    console.log("password: ", this.password.value);
+                this.visible = true;
+                this.toggle = function(){
+                    this.visible = !this.visible;
                 };
             </app>
         </script>
