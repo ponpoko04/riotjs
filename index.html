@@ -21,26 +21,21 @@
         <script type="riot/tag">
             <app>
                 <h1>expressions</h1>
-                <button onclick="{click}">click</button>
+
+                <form onsubmit="{submit}">
+                    <input type="text" name="username"/>
+                    <input type="password" name="password"/>
+                    <button type="submit" name="submit">login</button>
+                </form>
+
+                this.on('mount', function(){
+                    this.username.value = "phi";
+                    this.password.value = "1234abcd";
+                });
                 
-                <ul>
-                    <li each="{list}">
-                        <button onclick="{clickItem}">{name}</button>
-                    </li>
-                </ul>
-            
-                this.list = [
-                    {name: "hoge"},
-                    {name: "foo"},
-                    {name: "bar"},
-                ];
-                
-                this.click = function(){
-                    console.log("click されたよー");
-                };
-                
-                this.clickItem = function(e){
-                    console.log(e.item.name + 'が click されたよー');
+                this.submit = function(){
+                    console.log("username: ", this.username.value);
+                    console.log("password: ", this.password.value);
                 };
             </app>
         </script>
