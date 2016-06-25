@@ -14,23 +14,19 @@
     </head>
     <body>
         <!--ユーザー定義のタグをここに展開-->
-        <!--<app title="Hello, Riot.js"></app>-->
-        <app></app>
+        <h1>こっちに影響はない</h1>
+        <app title="Scoped CSS"></app>
         
         <!--appタグを定義-->
         <script type="riot/tag">
             <app>
-                <h1>expressions</h1>
-
-                <button onclick="{toggle}">click</button>
-                <div if="{visible}"> look </div>
-                <div show="{visible}"> show </div>
-                <div hide="{visible}"> hide </div>
-                
-                this.visible = true;
-                this.toggle = function(){
-                    this.visible = !this.visible;
-                };
+                <h1>{ title }</h1>
+                <style scoped>
+                    :scope h1 {
+                        color: red;
+                    }
+                </style>
+                this.title = opts.title;
             </app>
         </script>
         
